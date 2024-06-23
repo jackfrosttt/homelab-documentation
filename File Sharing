@@ -1,0 +1,8 @@
+-- File Sharing
+
+Using Samba, I was able to create a file server on my main Pi where I am able to host files that I can either transfer to other devices or even store on there as well.
+
+As I am the only user on the Pi, I did not have to worry about access controls, and user management to a degree but I am slowly learning by adding 'fake' users that let me learn  Linux permissions.
+
+I was able to learn how the file system works on Raspberry Pi's OS, and how sharing works over the network. I was able to learn how to adjust the protocol version, set a minimum version, to enable encryption to protect my data in transit even though my network is 'safe'.
+

@@ -6,3 +6,38 @@ As I am the only user on the Pi, I did not have to worry about access controls, 
 
 I was able to learn how the file system works on Raspberry Pi's OS, and how sharing works over the network. I was able to learn how to adjust the protocol version, set a minimum version, to enable encryption to protect my data in transit even though my network is 'safe'.
 
+Instructions: 
+
+
+Open a termimal/command prompt
+ssh username@pi-hostname
+sudo apt update && sudo apt upgrade -y
+sudo apt install samba -y
+
+-- Add Samba User 
+sudo smbpasswd -a 'existing-user's username'
+
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf/backup 
+sudo nano /etc/samba/smb.conf 
+
+server min protocol = SMB3
+server max protocol = SMB3_11
+smb encrypt = required
+
+[Name of Share]
+comment = Comment 
+path = /home/user/foldertobeshared
+valid users = existinguser
+read only = no 
+create mask = 0700
+directory mask = 0700
+hide files = /lost+found/
+
+sudo systemctl reload smbd
+
+
+
+
+
+
+#in-progress
